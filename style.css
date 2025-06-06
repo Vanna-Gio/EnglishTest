@@ -1,0 +1,166 @@
+
+    :root {
+      --primary-color: #4CAF50; /* Green */
+      --secondary-color: #2196F3; /* Blue */
+      --accent-color: #FFC107; /* Amber */
+      --background-light: #e0f2f7; /* Light Blue background */
+      --text-dark: #333;
+      --text-light: #fff;
+      --border-radius: 8px;
+      --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Poppins', Arial, "Khmer OS", "Battambang", sans-serif;
+      background-color: var(--background-light);
+      color: var(--text-dark);
+      text-align: center;
+      padding: 20px;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+
+    h2, h3 {
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+
+    .container {
+      background-color: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      margin: 20px auto;
+      max-width: 800px;
+      width: 90%;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1.1em;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: var(--border-radius);
+      background-color: var(--secondary-color);
+      color: var(--text-light);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #1976D2; /* Darker blue */
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    #modeSelection button {
+      background-color: var(--primary-color);
+    }
+
+    #modeSelection button:hover {
+      background-color: #388E3C; /* Darker green */
+    }
+
+    #choicesArea button, #grammarChoicesArea button {
+      display: block; /* Stack choices vertically */
+      width: calc(100% - 20px); /* Adjust for margin */
+      margin: 10px auto;
+      background-color: #f0f0f0;
+      color: var(--text-dark);
+      border: 1px solid #ddd;
+      font-weight: normal;
+    }
+
+    #choicesArea button:hover, #grammarChoicesArea button:hover {
+      background-color: #e0e0e0;
+      color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    #choicesArea button.correct, #grammarChoicesArea button.correct {
+      background-color: #D4EDDA; /* Light green for correct */
+      border-color: #28A745;
+    }
+
+    #choicesArea button.incorrect, #grammarChoicesArea button.incorrect {
+      background-color: #F8D7DA; /* Light red for incorrect */
+      border-color: #DC3545;
+    }
+
+    #progressBarContainer {
+      background: #eee;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      margin: 20px auto;
+      height: 25px;
+      width: 90%;
+      border: 1px solid #ddd;
+    }
+
+    #progressBar {
+      background: var(--primary-color);
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-weight: 600;
+      font-size: 0.9em;
+    }
+
+    #feedbackText, #grammarFeedback {
+      font-size: 1.2em;
+      margin: 15px 0;
+      font-weight: 600;
+    }
+
+    #timer {
+      font-weight: 600;
+      color: var(--accent-color);
+    }
+
+    .question-box {
+      background-color: #f9f9f9;
+      border: 1px solid #eee;
+      border-radius: var(--border-radius);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    audio {
+      width: 80%;
+      margin-top: 20px;
+    }
+
+    .info-text {
+      font-style: italic;
+      color: #666;
+      margin-top: 15px;
+    }
+
+    .explanation-box {
+      background-color: #e3f2fd;
+      border: 1px solid #bbdefb;
+      border-radius: var(--border-radius);
+      padding: 15px;
+      margin-top: 20px;
+      text-align: left;
+    }
+  
