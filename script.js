@@ -205,6 +205,8 @@ const shadowingData = [
     { sentence: "I'm getting better little by little.", khmer: "ខ្ញុំកាន់តែប្រសើរឡើងបន្តិចម្តងៗ។" },
     { sentence: "It's all part of the learning process.", khmer: "វាជាផ្នែកមួយនៃដំណើរការរៀនសូត្រ។" },
     { sentence: "I'm open to feedback.", khmer: "ខ្ញុំបើកចំហរទទួលមតិកែលម្អ។" },
+
+    
     // Long paragraph entry
     {
         sentence: `You know, I'm really starting to believe in myself more these days. It's a good feeling!
@@ -216,6 +218,50 @@ I'm really confident in my ability to learn anything I put my mind to. And when 
 What really helps is that practicing helps me feel more confident. Every little bit makes a difference. And I'm trying to remember to celebrate my small successes – like when I understand something new or speak clearly.
 I'm trying to really learn from my experiences, good or bad. And instead of dwelling on what's hard, I'm focusing on my strengths. That makes me feel powerful. Most importantly, I keep trying to encourage myself to try new things. You just never know what you can do until you try!`,
         khmer: "អ្នកដឹងទេ ខ្ញុំពិតជាចាប់ផ្តើមជឿជាក់លើខ្លួនឯងកាន់តែខ្លាំងនាពេលបច្ចុប្បន្ននេះ។ វាជាអារម្មណ៍ល្អ! តាមពិត នៅពេលខ្ញុំអនុវត្ត ខ្ញុំអាចនិយាយដោយស្មោះត្រង់ថា 'ខ្ញុំមានទំនុកចិត្តនៅពេលខ្ញុំនិយាយភាសាអង់គ្លេស។' វាចាប់ផ្តើមងាយស្រួលជាងមុន។ ហើយវាមិនមែនត្រឹមតែភាសាអង់គ្លេសទេ ខ្ញុំមានអារម្មណ៍ថាខ្ញុំកំពុងរៀនរឿងថ្មីៗជារៀងរាល់ថ្ងៃ មិនថាមានរឿងអ្វីកើតឡើងនោះទេ។ និយាយដោយស្មោះត្រង់ ខ្ញុំគិតថាខ្ញុំកាន់តែមានទំនុកចិត្តតាមពេលវេលា។ វាជាដំណើរការបន្តិចម្តងៗ ប៉ុន្តែខ្ញុំអាចមានអារម្មណ៍បាន។ ហើយជាមួយនឹងទំនុកចិត្តនោះ ខ្ញុំពិតជាមានអារម្មណ៍ថាខ្ញុំអាចសម្រេចគោលដៅរបស់ខ្ញុំ មិនថាធំឬតូចនោះទេ។ ខ្ញុំបានកត់សម្គាល់ថាខ្ញុំមានទំនុកចិត្តក្នុងការចែករំលែកគំនិតរបស់ខ្ញុំឥឡូវនេះ ទោះបីជាវាមិនល្អឥតខ្ចោះក៏ដោយ។ នោះជាជំហានដ៏ធំមួយសម្រាប់ខ្ញុំ។ ហើយអ្វីដែលល្អបំផុតគឺ? ខ្ញុំមិនខ្លាចធ្វើខុសទេ។ ខ្ញុំគិតថា ការធ្វើខុសគឺជាវិធីដែលអ្នករៀនមែនទេ? ខ្ញុំមានទំនុកចិត្តយ៉ាងខ្លាំងលើសមត្ថភាពរបស់ខ្ញុំក្នុងការរៀនអ្វីដែលខ្ញុំបានគិត។ ហើយនៅពេលមានរឿងថ្មីៗកើតឡើង ខ្ញុំគិតថា 'បាទ ខ្ញុំអាចដោះស្រាយបញ្ហាប្រឈមថ្មីៗបាន។' ខ្ញុំកាន់តែប្រសើរឡើងក្នុងការជឿជាក់លើការវិនិច្ឆ័យផ្ទាល់ខ្លួនរបស់ខ្ញុំ។ នោះជាការសំខាន់។ អ្វីដែលពិតជាជួយគឺការអនុវត្តន៍ជួយឱ្យខ្ញុំមានអារម្មណ៍ជឿជាក់កាន់តែខ្លាំង។ រាល់ការខិតខំតូចៗសុទ្ធតែមានន័យ។ ហើយខ្ញុំកំពុងព្យាយាមចងចាំដើម្បីអបអរសាទរភាពជោគជ័យតូចៗរបស់ខ្ញុំ – ដូចជាពេលខ្ញុំយល់អ្វីមួយថ្មី ឬនិយាយបានច្បាស់លាស់។ ខ្ញុំកំពុងព្យាយាមរៀនពីបទពិសោធន៍របស់ខ្ញុំ មិនថាល្អឬអាក្រក់នោះទេ។ ហើយជំនួសឱ្យការគិតច្រើនលើអ្វីដែលពិបាក ខ្ញុំកំពុងផ្តោតលើចំណុចខ្លាំងរបស់ខ្ញុំ។ នោះធ្វើឱ្យខ្ញុំមានអារម្មណ៍ថាមានថាមពល។ អ្វីដែលសំខាន់បំផុត ខ្ញុំបន្តព្យាយាមលើកទឹកចិត្តខ្លួនឯងឱ្យសាកល្បងអ្វីថ្មីៗ។ អ្នកគ្រាន់តែមិនដែលដឹងថាអ្នកអាចធ្វើអ្វីបានទេ រហូតដល់អ្នកសាកល្បង!"
+    },
+    {
+        sentence: `Why do you want to study English?
+        Oh, that's a great question! Well, there are a few main reasons, actually.
+
+        First off, I really want to improve my career opportunities. English is such a global language, and knowing it well just opens up so many more doors, especially in many industries today. I feel like it's a really important skill for getting ahead.
+
+        Then there's the travel aspect. I absolutely love the idea of being able to travel more confidently. Imagine going to a new country and being able to communicate easily with people, ask for directions, order food – it would make the whole experience so much richer and less stressful. I really want to be able to explore the world and connect with people from different backgrounds.
+
+        And, of course, a big part of it is simply for personal growth. Learning English is a huge challenge, but it's also incredibly rewarding. It helps me to think in new ways, and it gives me access to so many more books, movies, and online resources that are in English. It just feels like it's expanding my world, you know?
+
+        So, yeah, for my career, for travel, and for just growing as a person, those are my main motivations for studying English.
+     
+        `
+       
+    },
+    {
+        sentence: `communication skills
+        You know, I think communication skills are incredibly important in life, really. It's not just about speaking a language, but how we speak and how we listen.
+
+        For me, good communication helps a lot with building stronger relationships. Whether it's with friends, family, or colleagues, when you can express yourself clearly and understand others, it just makes everything smoother. You feel more connected, right?
+
+        Also, I've noticed it's super helpful for solving problems. If you can talk openly about an issue and really listen to different ideas, it's much easier to find a solution that works for everyone. Bad communication can cause so many misunderstandings!
+
+        And in the workplace, it's absolutely essential. Being able to explain your ideas clearly or give good instructions is key. It helps avoid mistakes and makes teamwork much better. People can understand their roles and what needs to be done.
+
+        I think a big part of good communication is listening actively. It's not just waiting for your turn to speak, but really paying attention to what the other person is saying, and even their body language. That way, you truly understand their message.
+
+        So, for me, improving my communication skills, especially in English, is about being more effective in my daily life, having better relationships, and being more successful in whatever I do. It's a skill everyone needs, I believe.
+        
+        `
+    },
+    {
+        sentence: `My Hobbies and Free Time
+        Oh, that's a good question! Well, like most people, I have a few things I really enjoy doing when I'm not busy.
+        First off, I absolutely love reading. I try to make time for it every day, even if it's just for 20 minutes. I mostly enjoy fiction novels because they let me escape into different worlds and stories. It's my way of relaxing and learning new vocabulary at the same time, actually!
+
+        Besides reading, I've really gotten into taking walks, especially in the evenings. It's a simple activity, but it helps me clear my head and just enjoy being outside. Sometimes I listen to podcasts while I walk, which is a nice way to learn something new or just relax.
+
+        And, of course, because I'm studying English, a lot of my 'free time' is actually spent on that! I mean, I don't see it as work. I love watching English movies or TV shows without subtitles when I can. It's a fun way to practice my listening. I also enjoy listening to English music and trying to understand the lyrics.
+
+        So, yeah, reading, walking, and immersing myself in English media – those are pretty much my go-to hobbies and how I spend my free time. They help me relax and also keep me learning, which is perfect!
+        
+        `
     }
 ];
     let mode = "vocab";
