@@ -264,6 +264,66 @@ I'm trying to really learn from my experiences, good or bad. And instead of dwel
         `
     }
 ];
+
+  
+
+      const reading = [
+        {
+            sentence: `Position property defines how an element ____________.
+                It ______________ used for an element, which determines how _____ and where it appears on the page.`,
+            rule: "is positioned in the document layout, controls the type of positioning method, it interacts with other elements",
+            explanation: "The 'position' property is fundamental for controlling the placement of an element within the document flow.",
+            khmer: "លក្ខណៈសម្បត្តិ 'position' កំណត់ថាធាតុមួយ ___________. វា ____________ ត្រូវបានប្រើសម្រាប់ធាតុមួយ ដែលកំណត់ថា _______ និងកន្លែងណាដែលវាលេចឡើងនៅលើទំព័រ។"
+        },
+        {
+            sentence: `
+                For 'position: relative;', the element stays ____, but you can use ___ to move it relative to its__.
+            `,
+            rule: "__in the normal flow__, __top, right , bottom, and left__, __ normal position",
+            explanation: "Relative positioning allows you to shift an element from its original spot without affecting the layout of other elements.",
+            khmer: "Relative: ធាតុនៅតែ ____, ប៉ុន្តែអ្នកអាចប្រើ ___ ដើម្បីផ្លាស់ទីវាទាក់ទងទៅនឹង __របស់វា។ កំណត់យកទីតាំងរបស់ខ្លួនឯងជាគោល។"
+        },
+        {
+            sentence: `
+                For 'position: absolute;', the element is ___and positioned relative to the nearest ___ (an ancestor with a position other than static).
+            `,
+            rule: "_removed from the nomal flow __,_positioned relative_ ,ancestor",
+            explanation: "Absolute positioning takes an element out of the document flow and places it based on its closest positioned parent.",
+            khmer: "Absolute: ធាតុត្រូវបាន ___ និងកំណត់ទីតាំងទាក់ទងទៅនឹងទីតាំងដែលនៅជិតបំផុត __ (ដូនតាដែលមានទីតាំងក្រៅពី static)។ កំណត់យកទឺតាំង​ដែល​ជិតបំផុត​ទៅនឹង Ancestor (parent which got position relative) មិនខ្វល់ថានៅលើ ឫក្រោម element ដទៃ។"
+        },
+        {
+            sentence: `
+                'position: static;' is the ___ value for all HTML elements. Elements with this position are rendered in their ______ document flow, and 'top', 'bottom', 'left', and 'right' properties have ___ effect.
+            `,
+            rule: "default, normal, no",
+            explanation: "Static is the standard positioning behavior; elements are placed according to the browser's default layout rules.",
+            khmer: "Static (លំនាំដើម): 'position: static;' គឺជាតម្លៃ ___ សម្រាប់ធាតុ HTML ទាំងអស់។ ធាតុដែលមានទីតាំងនេះត្រូវបានបង្ហាញនៅក្នុងលំហូរឯកសារ _______ របស់ពួកគេ ហើយលក្ខណៈសម្បត្តិ 'top', 'bottom', 'left', និង 'right' មានឥទ្ធិពល ___ ។"
+        },
+        {
+            sentence: `
+                For 'position: fixed;', the element is removed from the normal document flow and positioned relative to the _____. It remains in the same visible position even when the user ____ the page.
+            `,
+            rule: "viewport, scrolls",
+            explanation: "Fixed positioning keeps an element locked to the browser window, useful for persistent headers or footers.",
+            khmer: "Fixed: (កំណត់ទីតាំងថេរ) សម្រាប់ 'position: fixed;' ធាតុត្រូវបានដកចេញពីលំហូរឯកសារធម្មតា ហើយកំណត់ទីតាំងទាក់ទងទៅនឹង _____។ វាស្ថិតនៅក្នុងទីតាំងដែលអាចមើលឃើញដដែល ទោះបីជាអ្នកប្រើប្រាស់ ____ ទំព័រនេះក៏ដោយ។"
+        },
+        {
+            sentence: `
+                'position: sticky;' behaves like 'relative' until it reaches a certain ______, at which point it becomes 'fixed' relative to the viewport. It requires at least one of 'top', 'bottom', 'left', or 'right' to be specified to define the ____ point.
+            `,
+            rule: "scroll threshold, sticking",
+            explanation: "Sticky positioning is great for elements that scroll with the page for a while and then 'stick' at a certain point, like section headers.",
+            khmer: "Sticky: (កំណត់ទីតាំងជាប់) 'position: sticky;' ធ្វើដូច 'relative' រហូតដល់វាឈានដល់ ______ ជាក់លាក់មួយ នៅពេលនោះវាប្រែក្លាយជា 'fixed' ទាក់ទងទៅនឹង viewport ។ វាទាមទារយ៉ាងហោចណាស់មួយក្នុងចំណោម 'top', 'bottom', 'left', ឬ 'right' ដើម្បីបញ្ជាក់ដើម្បីកំណត់ចំណុច ____ ។"
+        },
+    ];
+    const blankRules = [
+        "is positioned in the document layout, controls the type of positioning method, it interacts with other elements",
+        "__in the normal flow__, __top, right , bottom, and left__, __ normal position",
+        "_removed from the nomal flow __,_positioned relative_ ,ancestor",
+        "default, normal, no",
+        "viewport, scrolls",
+        "scroll threshold, sticking"
+    ];
     let mode = "vocab";
     let currentGrammar = null;
     let recognition; // For SpeechRecognition
@@ -281,6 +341,8 @@ I'm trying to really learn from my experiences, good or bad. And instead of dwel
         showGrammarQuiz();
       } else if (mode === 'shadowing') {
         showShadowing();
+      } else if (mode === 'reading'){
+        showReading();
       }
     }
 
@@ -291,6 +353,7 @@ I'm trying to really learn from my experiences, good or bad. And instead of dwel
 
       // Generate options including the correct one and some random wrong ones
       let shuffledRules = grammarRules.filter(rule => rule !== currentGrammar.rule);
+      shuffledRules =  blankRules.filter(rule => rule !== currentGrammar.rule);
       shuffledRules = shuffledRules.sort(() => 0.5 - Math.random()).slice(0, 3); // Get 3 random wrong rules
       const options = [currentGrammar.rule, ...shuffledRules].sort(() => 0.5 - Math.random());
 
@@ -337,6 +400,60 @@ I'm trying to really learn from my experiences, good or bad. And instead of dwel
       explanationDiv.innerHTML = `<strong>Explanation:</strong> ${currentGrammar.explanation}`;
       explanationDiv.style.display = 'block';
     }
+//Reading Game 
+function showReading() {
+    const area = document.getElementById("gameArea");
+    currentGrammar = reading[Math.floor(Math.random() * reading.length)];
+
+    // Generate options including the correct one and some random wrong ones
+    
+    shuffledRules =  blankRules.filter(rule => rule !== currentGrammar.rule);
+    shuffledRules = shuffledRules.sort(() => 0.5 - Math.random()).slice(0, 3); // Get 3 random wrong rules
+    const options = [currentGrammar.rule, ...shuffledRules].sort(() => 0.5 - Math.random());
+
+    area.innerHTML = `
+      <h2>📝 Reading </h2>
+      <div class="question-box">
+        <p>Identify the tense/rule used in the sentence:</p>
+        <p><strong>"${currentGrammar.sentence}"</strong></p>
+        <p class="info-text"><em>Translation: ${currentGrammar.khmer}</em></p>
+      </div>
+      <div id="grammarChoicesArea"></div>
+      <p id="grammarFeedback"></p>
+      <div id="grammarExplanation" class="explanation-box" style="display:none;"></div>
+      <button onclick="showReading()">Next Question</button>
+    `;
+
+    const choicesArea = document.getElementById("grammarChoicesArea");
+    options.forEach(rule => {
+      const btn = document.createElement("button");
+      btn.textContent = rule;
+      btn.onclick = () => checkGrammarAnswer(btn, rule);
+      choicesArea.appendChild(btn);
+    });
+  }
+
+  function checkGrammarAnswer(button, selected) {
+    const feedback = document.getElementById("grammarFeedback");
+    const explanationDiv = document.getElementById("grammarExplanation");
+
+    // Disable all buttons to prevent multiple clicks
+    document.querySelectorAll("#grammarChoicesArea button").forEach(btn => btn.disabled = true);
+
+    if (selected === currentGrammar.rule) {
+      feedback.textContent = "✅ Correct! Well done!";
+      feedback.style.color = "green";
+      button.classList.add('correct');
+    } else {
+      feedback.textContent = `❌ Incorrect. The correct answer is: "${currentGrammar.rule}"`;
+      feedback.style.color = "red";
+      button.classList.add('incorrect');
+      // Highlight the correct answer
+      Array.from(document.querySelectorAll("#grammarChoicesArea button")).find(btn => btn.textContent === currentGrammar.rule).classList.add('correct');
+    }
+    explanationDiv.innerHTML = `<strong>Explanation:</strong> ${currentGrammar.explanation}`;
+    explanationDiv.style.display = 'block';
+  }
 
     // --- Shadowing Practice ---
     function showShadowing() {
