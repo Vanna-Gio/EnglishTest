@@ -1,5 +1,19 @@
 
 const vocabData = [
+    { word: "Dynamic (adjective / noun) ", meaning: "Dynamic (adj) = សកម្ម, ចលនានៃការផ្លាស់ប្តូរ, ឬ មានថាមពលគ្រប់ពេល <br>Dynamic (noun) = សភាពសកម្ម, លក្ខណៈសកម្ម", khmer: "👉 មានការផ្លាស់ប្តូរញឹកញាប់ / សកម្ម / សព្វវ័យ / មានថាមពល", audio: "Dynamic.mp3" },
+    { word: "Energetic", meaning: "", khmer: "សកម្ម / ល្អិតល្អន់", audio: "Energetic.mp3" },
+    { word: "Lively ", meaning: "", khmer: "សប្បាយរីករាយ / សកម្ម", audio: "Lively.mp3" },
+    { word: "Changing", meaning: "", khmer: "កំពុងផ្លាស់ប្តូរ", audio: "Changing.mp3" },
+    { word: "Honestly (adverb)", meaning: "Honestly = ដោយស្មោះត្រង់, ដោយមិនក្លែងក្លាយ, ដោយសេចក្តីสัตย์", khmer: "👉 ជាសេចក្តីสัตย์, ដោយមិនលាក់លៀម, ដោយមានភាពស្មោះត្រង់", audio: "Honestly.mp3" },
+    { word: "Frankly (adverb) ", meaning: "", khmer: " ជាស្មោះត្រង់,បើនិយាយតាមពិត", audio: "Frankly.mp3" },
+    { word: " Sincerely (adverb)  ", meaning: "", khmer: "ដោយស្មោះត្រង់ (ចិត្ត)", audio: "Sincerely.mp3" },
+    { word: "Truthfully (adverb) ", meaning: "", khmer: "ដោយសេចក្តីពិត", audio: "Truthfully.mp3" },
+    { word: "Budget (noun, verb)", meaning: "Budget (noun, verb) <br> 👉 (Noun) ប្រាក់ថវិកា <br>👉 To budget (v.) = រៀបចំថវិកា, គ្រប់គ្រងការចំណាយ", khmer: "ថវិកា, ប្រាក់ដែលបានរៀបចំសម្រាប់ការចំណាយ", audio: "Budget.mp3" },
+    { word: "Expense (n.) ", meaning: "", khmer: "ការចំណាយ ", audio: ".mp3" },
+    { word: "Financial plan (n.)  =  ", meaning: "", khmer: "ផែនការហិរញ្ញវត្ថុ ", audio: "Financial.mp3" },
+    { word: "Cost (n., v.)", meaning: "", khmer: "តម្លៃ, ចំណាយ  ", audio: "Cost.mp3" },
+    { word: "Income (n.) ", meaning: "", khmer: "ការចំណាយ ប្រាក់ចំណូល ", audio: "Income.mp3" },
+    { word: "Possess (verb) ", meaning: "", khmer: "👉 កាន់កាប់ ឬ មាន (បញ្ចេញអត្ថន័យថាអ្នកគ្រប់គ្រង/មានអ្វីមួយ) , កាន់កាប់ជាប្រពន្ធភាព, ទ្រព្យសម្បត្តិ, ជំនាញ ឬអារម្មណ៍ ", audio: "Possess.mp3" },
     { word: "beautiful", meaning: "pleasing to the senses or mind aesthetically", khmer: "ស្អាត", audio: "beautiful.mp3" },
     { word: "interesting", meaning: "something that catches your attention or curiosity", khmer: "គួរឱ្យចាប់អារម្មណ៍", audio: "interesting.mp3" },
     { word: "difficult", meaning: "requiring much effort or skill to accomplish, deal with, or understand", khmer: "ពិបាក", audio: "difficult.mp3" },
@@ -140,6 +154,17 @@ const grammarRules = [
 ];
 
 const shadowingData = [
+    { sentence: "She is a dynamic leader who inspires her team.", khmer: "👉 នាងជាអ្នកដឹកនាំសកម្ម ដែលបញ្ចុះបញ្ចូលក្រុមរបស់នាង។" },
+    { sentence: "The market is very dynamic these days.", khmer: "👉 ទីផ្សារមានការផ្លាស់ប្តូរញឹកញាប់ណាស់ថ្ងៃនេះ។" },
+    { sentence: "They studied the dynamics of human behavior. (noun)", khmer: "They studied the dynamics of human behavior. (noun)" },
+    { sentence: "Honestly, I didn’t expect that answer.", khmer: "👉 ដោយស្មោះត្រង់ ខ្ញុំមិនបានរំពឹងថានឹងមានចម្លើយនោះទេ។" },
+    { sentence: "She spoke honestly about her feelings.", khmer: "👉 នាងបាននិយាយដោយស្មោះត្រង់អំពីអារម្មណ៍របស់នាង។" },
+    { sentence: "Do you honestly think that will work?", khmer: "👉 តើអ្នកគិតដោយស្មោះត្រង់ថាអ្វីនោះនឹងដំណើរការទេ?" },
+    { sentence: "(Noun) We need to stick to our budget this month.  ", khmer: "👉 ខែនេះយើងត្រូវគោរពតាមថវិការបស់យើង។" },
+    { sentence: "(Verb) She carefully budgeted her money for the trip.", khmer: "👉 នាងបានរៀបចំថវិការបស់នាងយ៉ាងប្រុងប្រយ័ត្នសម្រាប់ការធ្វើដំណើរ។" },
+    { sentence: "She possesses great talent in music.", khmer: "👉 នាងមានទេពកោសល្យខ្លាំងក្នុងវិស័យតន្រ្តី។" },
+    { sentence: "He possessed a large amount of land in the countryside.", khmer: "👉 គាត់បានកាន់កាប់ដីធ្លីច្រើននៅជនបទ។" },
+    { sentence: " You must possess a valid license to drive.", khmer: "👉 អ្នកត្រូវមានប័ណ្ណបើកបរដែលមានសុពលភាព ដើម្បីបើកបរ។" },
     { sentence: "How are you today?", khmer: "អ្នកសុខសប្បាយរបស់ថ្ងៃនេះដែរឬទេ?" },
     { sentence: "I love learning English. It's so rewarding!", khmer: "ខ្ញុំស្រលាញ់ការសិក្សាភាសាអង់គ្លេស។ វាពិតជាមានប្រយោជន៍ណាស់!" },
     { sentence: "This is my favorite book. I highly recommend it.", khmer: "នេះជាសៀវភៅដែលខ្ញុំចូលចិត្តបំផុត។ ខ្ញុំសូមណែនាំវា។" },
