@@ -1,373 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enhanced English Learning Game</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="">
-  <style>
 
-
-        :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #2196F3;
-            --accent-color: #FFC107;
-            --background-light: #e0f2f7;
-            --text-dark: #333;
-            --text-light: #fff;
-            --error-color: #DC3545;
-            --success-color: #28A745;
-            --border-radius: 8px;
-            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', Arial, "Khmer OS", "Battambang", sans-serif;
-            background-color: var(--background-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0;
-            margin: 0;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: var(--secondary-color);
-            width: 100%;
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            list-style: none;
-            gap: 1rem;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.5rem;
-            transition: var(--transition);
-            border-radius: var(--border-radius);
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Main Content */
-        main {
-            width: 100%;
-            max-width: 1200px;
-            padding: 0 1rem;
-            flex: 1;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-            text-align: center;
-        }
-
-        h2, h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .container {
-            background-color: #fff;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            padding: 2rem;
-            margin: 1rem auto;
-            width: 100%;
-            max-width: 800px;
-        }
-
-        /* Buttons */
-        .btn {
-            padding: 0.75rem 1.5rem;
-            font-size: 1.1rem;
-            margin: 0.5rem;
-            cursor: pointer;
-            border: none;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-            font-weight: 600;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-        }
-
-        .btn-primary:hover {
-            background-color: #1976D2;
-            transform: translateY(-2px);
-        }
-
-        .btn-success {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-        }
-
-        .btn-success:hover {
-            background-color: #388E3C;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            color: var(--text-light);
-        }
-
-        .btn-secondary:hover {
-            background-color: #5a6268;
-            transform: translateY(-2px);
-        }
-
-        .btn-block {
-            display: block;
-            width: calc(100% - 1rem);
-            margin: 0.5rem auto;
-            text-align: left;
-            padding-left: 1.25rem;
-            background-color: #f0f0f0;
-            color: var(--text-dark);
-            border: 1px solid #ddd;
-            font-weight: normal;
-        }
-
-        .btn-block:hover {
-            background-color: #e0e0e0;
-            color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        .btn-correct {
-            background-color: #D4EDDA;
-            border-color: var(--success-color);
-            border: 1px solid var(--success-color); /* Added border */
-        }
-
-        .btn-incorrect {
-            background-color: #F8D7DA;
-            border-color: var(--error-color);
-            border: 1px solid var(--error-color); /* Added border */
-        }
-
-        /* Game Elements */
-        .question-box {
-            background-color: #f9f9f9;
-            border: 1px solid #eee;
-            border-radius: var(--border-radius);
-            padding: 1.25rem;
-            margin-bottom: 1.25rem;
-            text-align: center; /* Centered for questions */
-        }
-
-        .explanation-box {
-            background-color: #e3f2fd;
-            border: 1px solid #bbdefb;
-            border-radius: var(--border-radius);
-            padding: 1rem;
-            margin-top: 1.25rem;
-            text-align: left;
-            font-size: 0.95rem;
-        }
-
-        .example-sentence {
-            font-family: monospace;
-            background-color: #f0f4f7;
-            padding: 0.5rem;
-            border-radius: 5px;
-            margin-top: 0.5rem;
-            display: block;
-            font-size: 0.95rem;
-            white-space: pre-wrap;
-            text-align: left; /* Aligned left for code-like snippets */
-        }
-
-        .fill-in-blank-input {
-            padding: 0.75rem;
-            font-size: 1.1rem;
-            border: 1px solid #ccc;
-            border-radius: var(--border-radius);
-            margin-bottom: 1rem;
-            width: 100%;
-            max-width: 300px;
-            text-align: center;
-            display: block; /* Make it a block element to center with margin auto */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Feedback and Progress */
-        .feedback {
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            font-weight: 600;
-        }
-
-        .feedback-success {
-            color: var(--success-color);
-        }
-
-        .feedback-error {
-            color: var(--error-color);
-        }
-
-        .feedback-info {
-            color: var(--secondary-color);
-        }
-
-        .info-text {
-            font-style: italic;
-            color: #666;
-            margin-top: 1rem;
-        }
-
-        /* Layout Utilities */
-        .text-center {
-            text-align: center;
-        }
-
-        .sub-menu-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.25rem;
-        }
-
-        .sub-menu-btn {
-            flex: 1 1 calc(50% - 1rem);
-            max-width: 300px;
-            padding: 1rem;
-            font-size: 1.2rem;
-        }
-
-        /* Audio Elements */
-        audio {
-            width: 100%;
-            max-width: 400px;
-            margin: 1rem auto;
-            display: block;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 1.5rem;
-            }
-            
-            .sub-menu-btn {
-                flex: 1 1 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav ul {
-                gap: 0.5rem;
-            }
-            
-            nav a {
-                font-size: 1rem;
-                padding: 0.25rem 0.5rem;
-            }
-            
-            .container {
-                padding: 1rem;
-            }
-        }
-    
-
-
-  </style>
-</head>
-<body>
-  <nav>
-    <div class="nav-container">
-        <ul>
-            <li><a href="#" id="homeLink">Home</a></li>
-            <li><a href="#" id="aboutLink">About Us</a></li>
-            <li><a href="#" id="contactLink">Contact</a></li>
-            <li><a href="#" id="resourcesLink">Resources</a></li>
-        </ul>
-    </div>
-</nav>
-
-<main>
-    <h1>Master English: Your Interactive Learning Journey</h1>
-    <div class="container">
-        <div id="modeSelection">
-            <h2 class="text-center">Choose Your Learning Path</h2>
-            <div class="sub-menu-buttons">
-                <button class="btn btn-success sub-menu-btn" data-mode="vocab">📚 Vocabulary Challenge</button>
-                <button class="btn btn-success sub-menu-btn" data-mode="grammar">📝 Grammar Guru</button>
-                <button class="btn btn-success sub-menu-btn" data-mode="shadowing">🗣️ Shadowing Practice</button>
-                
-                <button class="btn btn-success sub-menu-btn" data-mode="qna">❓ Q&A Game</button>
-            </div>
-        </div>
-        <div id="gameArea"></div>
-    </div>
-</main>
-
-  <script >
 
 
         // Game Data - Moved to separate object for better organization
         const gameData = {
-                 vocab2: [
-                 
-                      { word: "In order to ", meaning: " is used to express purpose — it means -for the purpose of or to be able to.Examples:  I study hard in order to pass the exam.<br>→ ខ្ញុំសូត្រយ៉ាងខំ ដើម្បីឲ្យឆ្លងវិញ្ញាសា។<br>She exercises in order to stay healthy.<br>→ នាងហាត់ប្រាណ ដើម្បីរក្សាសុខភាព។", khmer: "ដើម្បី", audio: "In order to.mp3" },
-                    ],
-                
+                vocab2: [
+
+                    { word: "carrot", meaning: "A long, orange, root vegetable that is sweet and crunchy.", khmer: "ការ៉ុត", audio: "carrot.mp3" },
+                    { word: "potato", meaning: "A starchy, round or oval-shaped root vegetable.", khmer: "ដំឡូងបារាំង", audio: "potato.mp3" },
+                    { word: "onion", meaning: "A round vegetable with thin, dry skin and many layers inside, having a strong smell and taste.", khmer: "ខ្ទឹមបារាំង", audio: "onion.mp3" },
+                    { word: "tomato", meaning: "A soft, red fruit, eaten as a vegetable, often in salads.", khmer: "ប៉េងប៉ោះ", audio: "tomato.mp3" },
+                    { word: "cucumber", meaning: "A long, green-skinned fruit with watery flesh, usually eaten raw in salads.", khmer: "ត្រសក់", audio: "cucumber.mp3" },
+                    { word: "lettuce", meaning: "A leafy green vegetable, often used in salads.", khmer: "សាឡាត់", audio: "lettuce.mp3" },
+                    { word: "broccoli", meaning: "A green vegetable with a tree-like shape.", khmer: "ផ្កាខាត់ណាខៀវ", audio: "broccoli.mp3" },
+                    { word: "cabbage", meaning: "A round vegetable with large, green or purple leaves.", khmer: "ស្ពៃក្តោប", audio: "cabbage.mp3" },
+                    { word: "spinach", meaning: "A leafy green vegetable, rich in iron.", khmer: "ស្ពៃខ្មៅ", audio: "spinach.mp3" },
+                    { word: "bell pepper", meaning: "A hollow, mild-flavored vegetable, often red, yellow, or green.", khmer: "ម្ទេសប្លោក", audio: "bellpepper.mp3" }
+                ],  
                 vocab1: [
-                    { word: "beyond (Preposition / Adverb)", meaning: "1. Preposition – Past a place or limit<br>English: The road continues beyond the hill.<br>Khmer: ផ្លូវនោះបន្តឆ្លងលើសភ្នំទៅទៀត<br>English: The damage was beyond repair.<br>Khmer: ការខូចខាតលើសសមត្ថភាពជួសជុលបាន។<br>3. Preposition – Outside the range of understanding or possibility<br>English: This concept is beyond me<br>Khmer: គំនិតនេះខ្ញុំមិនអាចយល់បានទេ។<br>4. Adverb – At a further place<br>English: He looked beyond and saw the ocean<br>Khmer: គាត់មើលទៅឆ្ងាយហើយឃើញសមុទ្រ", khmer: "លើស / ឆ្លងផុត / ក្រៅពី", audio: "beyond.mp3" },
-                    { word: "inspiration (noun)", meaning: "Something or someone that motivates you to do or feel something, exspecially something creative or positive.<br>2. A sudden good idea or feeling that encourages action. <br> Examples: 1. She is my inspiration to work harder.<br>->នាង​គីជា​ការ​ជំរុញចិត្ត​សម្រាប់ខ្ញុំឲ្យខិតខំធ្វើការជាងមុន។<br>2. This story gave me a lot of inspiration.<br>->រឿង​នេះបាន​ផ្តល់ការជំរុញចិត្តយ៉ាងច្រើនសម្រាប់ខ្ញុំ។<br>3. Nature is a source of inspiration for artists.<br>->ធម្មជាតិគឺជា​ប្រភេទ​នៃការ​ជះឥទ្ធិពលសម្រាប់សិល្បករ។ ", khmer: "ការជំរុញចិត្ត/​ ការជះឥទ្ធិពល/ បែបបទជាដើមគំនិត", audio: "inspiration.mp3" },
-                    { word: "gather (Verb)", meaning: "1. To collect things together(objects, information, people, etc.)ប្រមូល <br>Example: 1.We need to gather more information.យើងត្រូវប្រមូលព័ត៏មានបន្ថែម។<br>To come together/assemble (people)ជួបជុំ, ប្រមូលផ្តុំ<br> Example: They gathered for a meeting.ពួកគេបានជួបជុំគ្នាសម្រាប់់កិច្ចប្រជុំមួយ។<br>3. To pick (flowers,fruit,etc)ប្រមូល<br>She gathered some flowers from the garden. នាងបានប្រមូលផ្កាពីសួន។ ", khmer:"ប្រមូល​(object,information)/ ជួបជុំ(people)"},
+                    { word: "apple", meaning: "A round fruit with crisp flesh and pips.", khmer: "ផ្លែប៉ោម", audio: "apple.mp3" },
+                    { word: "banana", meaning: "A long, curved fruit with soft pulpy flesh and yellow skin when ripe.", khmer: "ចេក", audio: "banana.mp3" },
+                    { word: "orange", meaning: "A round, sweet, juicy citrus fruit with a tough, reddish-yellow rind.", khmer: "ក្រូច", audio: "orange.mp3" },
+                    { word: "grape", meaning: "A green, purple, or red berry, typically growing in clusters.", khmer: "ទំពាំងបាយជូរ", audio: "grape.mp3" },
+                    { word: "lemon", meaning: "A yellow, oval citrus fruit with thick skin and fragrant, acidic juice.", khmer: "ក្រូចឆ្មារ", audio: "lemon.mp3" },
+                    { word: "strawberry", meaning: "A sweet soft red fruit with a seed-studded surface.", khmer: "ស្ត្រប៊ឺរី", audio: "strawberry.mp3" },
+                    { word: "mango", meaning: "A fleshy, oval, yellowish-red tropical fruit.", khmer: "ស្វាយ", audio: "mango.mp3" },
+                    { word: "pineapple", meaning: "A large tropical fruit with spiky, tough skin and sweet, yellow flesh.", khmer: "ម្នាស់", audio: "pineapple.mp3" },
+                    { word: "watermelon", meaning: "A large, round, green fruit with sweet, red, watery pulp and black seeds.", khmer: "ឪឡឹក", audio: "watermelon.mp3" },
+                    { word: "pear", meaning: "A sweet, juicy fruit that is narrow at the stem and wide at the bottom.", khmer: "ផ្លែសេរី", audio: "pear.mp3" },
+                    { word: "cherry", meaning: "A small, soft, round stone fruit that is typically bright or dark red.", khmer: "ផ្លែឆឺរី", audio: "cherry.mp3" },
+                    { word: "peach", meaning: "A round stone fruit with juicy yellow flesh and fuzzy skin.", khmer: "ផ្លែប៉េស", audio: "peach.mp3" },
+                    { word: "plum", meaning: "An oval fleshy fruit that is purple, red, or yellow when ripe and contains a flattish pointed stone.", khmer: "ផ្លែព្រីង", audio: "plum.mp3" },
+                    { word: "kiwi", meaning: "A small oval fruit with a brown, hairy skin, sweet green flesh, and tiny black seeds.", khmer: "គីវី", audio: "kiwi.mp3" },
+                    { word: "blueberry", meaning: "A small, sweet, dark blue berry, often grown in clusters.", khmer: "ផ្លែប៊្លូបឺរី", audio: "blueberry.mp3" },
 
-                    { word: "Versatile  ( adjective)", meaning: " Able to do many different things well or having many uses.<br>Examples: She is a versatile employee.<br>→ នាងជាបុគ្គលិកដែលមានសមត្ថភាពច្រើនជំនាញ។<br>This knife is very versatile in the kitchen.<br>→ កាំបិតនេះអាចប្រើបានច្រើនទ្រង់ទ្រាយក្នុងផ្ទះបាយ។", khmer: "មានសមត្ថភាពច្រើនជំនាញ/ អាចប្រើបានច្រើនទ្រង់ទ្រាយ", audio: "versatile.mp3" },
-
-
-
-                  ],      
-            vocab: [
+                ],
+                vocab3: [
+                    { word: "hair", meaning: "The fine threads that grow from the skin of people and animals.", khmer: "សក់", audio: "hair.mp3" },
+                    { word: "short", meaning: "Not long.", khmer: "ខ្លី", audio: "short.mp3" },
+                    { word: "long", meaning: "Measuring a great distance from end to end.", khmer: "វែង", audio: "long.mp3" },
+                    { word: "curly", meaning: "Formed into coils or ringlets.", khmer: "រួញ", audio: "curly.mp3" },
+                    { word: "straight", meaning: "Without a bend or curve.", khmer: "ត្រង់", audio: "straight.mp3" },
+                    { word: "brown", meaning: "A color like that of earth or wood.", khmer: "ត្នោត", audio: "brown.mp3" },
+                    { word: "black", meaning: "The darkest color, the opposite of white.", khmer: "ខ្មៅ", audio: "black.mp3" },
+                    { word: "blonde", meaning: "Pale yellow or golden hair.", khmer: "ទង់ដែង", audio: "blonde.mp3" },
+                    { word: "red", meaning: "A color like that of blood.", khmer: "ក្រហម", audio: "red.mp3" },
+                    { word: "brush", meaning: "An object with bristles used for tidying hair.", khmer: "ច្រាស", audio: "brush.mp3" }
+                ],
+                vocab4: [
+                    { word: "red", meaning: "The color of blood or fire.", khmer: "ក្រហម", audio: "red.mp3" },
+                    { word: "blue", meaning: "The color of the sky or the sea.", khmer: "ខៀវ", audio: "blue.mp3" },
+                    { word: "yellow", meaning: "The color of ripe lemons or gold.", khmer: "លឿង", audio: "yellow.mp3" },
+                    { word: "green", meaning: "The color of grass or leaves.", khmer: "បៃតង", audio: "green.mp3" },
+                    { word: "black", meaning: "The darkest color; the opposite of white.", khmer: "ខ្មៅ", audio: "black.mp3" },
+                    { word: "white", meaning: "The lightest color; the opposite of black.", khmer: "ស", audio: "white.mp3" },
+                    { word: "orange", meaning: "A color between red and yellow; the color of an orange fruit.", khmer: "ទឹកក្រូច", audio: "orange_color.mp3" },
+                    { word: "purple", meaning: "A color between red and blue.", khmer: "ស្វាយ", audio: "purple.mp3" },
+                    { word: "pink", meaning: "A pale red color.", khmer: "ផ្កាឈូក", audio: "pink.mp3" },
+                    { word: "brown", meaning: "A dark color like that of earth or wood.", khmer: "ត្នោត", audio: "brown_color.mp3" }
+                ],
+                vocab5: [
+                    { word: "shirt", meaning: "A piece of clothing for the upper body, typically with a collar and sleeves.", khmer: "អាវ", audio: "shirt.mp3" },
+                    { word: "trousers", meaning: "An outer garment covering the body from the waist to the ankles, with a separate part for each leg.", khmer: "ខោវែង", audio: "trousers.mp3" },
+                    { word: "dress", meaning: "A one-piece garment for a woman or girl that covers the body and extends down over the legs.", khmer: "រ៉ូប", audio: "dress.mp3" },
+                    { word: "skirt", meaning: "A garment fastened around the waist and hanging down around the legs.", khmer: "សំពត់", audio: "skirt.mp3" },
+                    { word: "shoes", meaning: "A covering for the foot, typically made of leather, with a sturdy sole and not reaching above the ankle.", khmer: "ស្បែកជើង", audio: "shoes.mp3" },
+                    { word: "socks", meaning: "A garment for the foot and lower part of the leg.", khmer: "ស្រោមជើង", audio: "socks.mp3" },
+                    { word: "coat", meaning: "An outer garment that you wear over other clothes to keep warm or for protection.", khmer: "អាវធំ", audio: "coat.mp3" },
+                    { word: "hat", meaning: "A shaped covering for the head.", khmer: "មួក", audio: "hat.mp3" },
+                    { word: "jacket", meaning: "An outer garment extending to the waist or hips, with sleeves.", khmer: "អាវក្រៅ", audio: "jacket.mp3" },
+                    { word: "t-shirt", meaning: "A short-sleeved casual top, generally made of cotton.", khmer: "អាវយឺត", audio: "t-shirt.mp3" }
+                ],
+                vocab6: [
+                    { word: "chair", meaning: "A seat for one person, with a back and four legs.", khmer: "កៅអី", audio: "chair.mp3" },
+                    { word: "table", meaning: "A piece of furniture with a flat top and one or more legs, providing a surface for eating, writing, or working.", khmer: "តុ", audio: "table.mp3" },
+                    { word: "bed", meaning: "A piece of furniture for sleeping on, typically a framework with a mattress.", khmer: "គ្រែ", audio: "bed.mp3" },
+                    { word: "sofa", meaning: "A long upholstered seat with a back and arms, for two or more people.", khmer: "សាឡុង", audio: "sofa.mp3" },
+                    { word: "desk", meaning: "A piece of furniture with a flat top and often drawers, used for writing or working.", khmer: "តុការងារ", audio: "desk.mp3" },
+                    { word: "wardrobe", meaning: "A large, tall cupboard in which clothes may be hung or stored.", khmer: "ទូខោអាវ", audio: "wardrobe.mp3" },
+                    { word: "lamp", meaning: "A device for giving light.", khmer: "ចង្កៀង", audio: "lamp.mp3" },
+                    { word: "shelf", meaning: "A flat length of wood or other rigid material, attached to a wall or forming part of a unit, used for holding objects.", khmer: "ធ្នើរ", audio: "shelf.mp3" },
+                    { word: "mirror", meaning: "A surface, typically of glass coated with a metallic amalgam, that reflects a clear image.", khmer: "កញ្ចក់", audio: "mirror.mp3" },
+                    { word: "cupboard", meaning: "A piece of furniture with a door, doors, or drawers and usually shelves, used for storage.", khmer: "ទូ", audio: "cupboard.mp3" }
+                ],
+                vocab7: [
+                    { word: "heart", meaning: "A symbol of love or affection, shaped like a heart.", khmer: "បេះដូង", audio: "heart.mp3", emoji: "❤️" },
+                    { word: "star", meaning: "A symbol with five or more points radiating from a center, representing a star.", khmer: "ផ្កាយ", audio: "star.mp3", emoji: "⭐" },
+                    { word: "cross", meaning: "A mark, object, or figure formed by two short intersecting lines or pieces, typically with one being horizontal and the other vertical.", khmer: "ឈើឆ្កាង", audio: "cross.mp3", emoji: "➕" }, // Using plus for simplicity as a universal cross emoji might be too specific (e.g., religious)
+                    { word: "arrow", meaning: "A mark or sign resembling an arrow, used to indicate direction or position.", khmer: "ព្រួញ", audio: "arrow.mp3", emoji: "➡️" },
+                    { word: "circle", meaning: "A round plane figure whose boundary (the circumference) consists of points equidistant from a fixed center.", khmer: "រង្វង់", audio: "circle.mp3", emoji: "🔵" },
+                    { word: "square", meaning: "A plane figure with four equal straight sides and four right angles.", khmer: "ការ៉េ", audio: "square.mp3", emoji: "🟩" },
+                    { word: "plus", meaning: "A mathematical symbol (+) indicating addition or a positive value.", khmer: "បូក", audio: "plus.mp3", emoji: "➕" },
+                    { word: "minus", meaning: "A mathematical symbol (-) indicating subtraction or a negative value.", khmer: "ដក", audio: "minus.mp3", emoji: "➖" },
+                    { word: "question mark", meaning: "A punctuation mark (?) indicating an interrogative clause or phrase.", khmer: "សញ្ញាសួរ", audio: "question_mark.mp3", emoji: "❓" },
+                    { word: "exclamation mark", meaning: "A punctuation mark (!) indicating an exclamation.", khmer: "សញ្ញាឧទាន", audio: "exclamation_mark.mp3", emoji: "❗" }
+                ],
+                 vocab: [
                  // Your existing 60 vocabulary words go here first
                  { word: "beautiful", meaning: "pleasing to the senses or mind aesthetically", khmer: "ស្អាត", audio: "beautiful.mp3" },
                  { word: "interesting", meaning: "something that catches your attention or curiosity", khmer: "គួរឱ្យចាប់អារម្មណ៍", audio: "interesting.mp3" },
@@ -633,7 +360,7 @@
         
                 // ... (Your vocab data here, if it's in the same gameData object) ...
             
-                grammar: {
+            grammar: {
                     tenses: {
                         "Present Simple": {
                             description: "Used for habits, routines, facts, and general truths.",
@@ -1978,8 +1705,15 @@
                              <button class="btn btn-primary" style="background-color: #4CAF50; color: white;" onclick="startVocabQuiz(15)">🔹 15 Words (Beginner)</button>
                              <button class="btn btn-primary" style="background-color: #FF9800; color: white;" onclick="startVocabQuiz(30)">😊 30 Words (Intermediate)</button>
                              <button class="btn btn-primary" style="background-color: #FF9800; color: white;" onclick="startVocabQuiz(40)">🔷 40 Words (Intermediate)</button>
-                             <button class="btn btn-primary" style="background-color: #2196F3; color: white;" onclick="startVocabQuiz1(${gameData.vocab1.length})">👉 New  ${gameData.vocab1.length}  Words</button>
-                             <button class="btn btn-primary" style="background-color: #2196F3; color: white;" onclick="startVocabQuiz2(${gameData.vocab2.length})">🟠 ពាក្យពិសេស</button>
+                             <button class="btn btn-primary" style="background-color: #2196F3; color: white;" onclick="startVocabQuiz1(${gameData.vocab1.length})">👉 Fruit  ${gameData.vocab1.length}  Words</button>
+                             <button class="btn btn-primary" style="background-color: #2196F3; color: white;" onclick="startVocabQuiz2(${gameData.vocab2.length})">🟠Vegetable </button>
+                             <button class="btn btn-primary" style="background-color: #2196F3; color: white;" onclick="startVocabQuiz3(${gameData.vocab3.length})">🟠Hair</button>
+                             <button class="btn btn-primary" style="background-color: #2196F3; color: white;" onclick="startVocabQuiz4(${gameData.vocab4.length})">🟠Colors </button>
+                             <button class="btn btn-primary" style="background-color: #2196F3; color: white;" onclick="startVocabQuiz5(${gameData.vocab5.length})">🟠Clothes</button>
+                             <button class="btn btn-primary" style="background-color: #2196F3; color: white;" onclick="startVocabQuiz6(${gameData.vocab6.length})">🟠Furniture </button>
+                             <button class="btn btn-primary" style="background-color: #2196F3; color: white;" onclick="startVocabQuiz7(${gameData.vocab7.length})">🟠Symbols </button>
+                             
+
                              <button class="btn btn-primary" style="background-color: #F44336; color: white;" onclick="startVocabQuiz(${gameData.vocab.length})">🔺 All ${gameData.vocab.length} Words (Advanced)</button>
                            </div>
                            <div class="text-center" style="margin-top: 1rem;">
@@ -1990,31 +1724,90 @@
        }
  
     
-function startVocabQuiz2(length) {
-          gameState.quizLength = length; // Store the selected quiz length
-          // Shuffle the entire vocabulary data and then take only the required length
-          gameState.currentPool = shuffleArray(gameData.vocab2).slice(0, gameState.quizLength);
-          gameState.currentIndex = 0;
-          gameState.score = 0;
-          displayVocabQuestion();
-      }
-function startVocabQuiz1(length) {
-          gameState.quizLength = length; // Store the selected quiz length
-          // Shuffle the entire vocabulary data and then take only the required length
-          gameState.currentPool = shuffleArray(gameData.vocab1).slice(0, gameState.quizLength);
-          gameState.currentIndex = 0;
-          gameState.score = 0;
-          displayVocabQuestion();
-}
-      function startVocabQuiz(length) {
+function startVocabQuiz(length) {
           gameState.quizLength = length; // Store the selected quiz length
           // Shuffle the entire vocabulary data and then take only the required length
           gameState.currentPool = shuffleArray(gameData.vocab).slice(0, gameState.quizLength);
+          
+         
           gameState.currentIndex = 0;
           gameState.score = 0;
           displayVocabQuestion();
       }
-
+      function startVocabQuiz1(length) {
+          gameState.quizLength = length; // Store the selected quiz length
+          // Shuffle the entire vocabulary data and then take only the required length
+          
+          gameState.currentPool = shuffleArray(gameData.vocab1).slice(0, gameState.quizLength);
+         
+         
+          gameState.currentIndex = 0;
+          gameState.score = 0;
+          displayVocabQuestion();
+      }
+      function startVocabQuiz2(length) {
+          gameState.quizLength = length; // Store the selected quiz length
+          // Shuffle the entire vocabulary data and then take only the required length
+          
+          gameState.currentPool = shuffleArray(gameData.vocab2).slice(0, gameState.quizLength);
+         
+         
+          gameState.currentIndex = 0;
+          gameState.score = 0;
+          displayVocabQuestion();
+      }
+      function startVocabQuiz3(length) {
+          gameState.quizLength = length; // Store the selected quiz length
+          // Shuffle the entire vocabulary data and then take only the required length
+          
+          gameState.currentPool = shuffleArray(gameData.vocab3).slice(0, gameState.quizLength);
+          
+         
+          gameState.currentIndex = 0;
+          gameState.score = 0;
+          displayVocabQuestion();
+      }
+      function startVocabQuiz4(length) {
+          gameState.quizLength = length; // Store the selected quiz length
+          // Shuffle the entire vocabulary data and then take only the required length
+          
+          gameState.currentPool = shuffleArray(gameData.vocab4).slice(0, gameState.quizLength);
+          
+          gameState.currentIndex = 0;
+          gameState.score = 0;
+          displayVocabQuestion();
+      }
+      function startVocabQuiz5(length) {
+          gameState.quizLength = length; // Store the selected quiz length
+          // Shuffle the entire vocabulary data and then take only the required length
+          
+          gameState.currentPool = shuffleArray(gameData.vocab5).slice(0, gameState.quizLength);
+         
+         
+          gameState.currentIndex = 0;
+          gameState.score = 0;
+          displayVocabQuestion();
+      }
+      function startVocabQuiz6(length) {
+          gameState.quizLength = length; // Store the selected quiz length
+          // Shuffle the entire vocabulary data and then take only the required length
+          
+          gameState.currentPool = shuffleArray(gameData.vocab6).slice(0, gameState.quizLength);
+         
+          gameState.currentIndex = 0;
+          gameState.score = 0;
+          displayVocabQuestion();
+      }
+function startVocabQuiz7(length) {
+          gameState.quizLength = length; // Store the selected quiz length
+          // Shuffle the entire vocabulary data and then take only the required length
+          
+          gameState.currentPool = shuffleArray(gameData.vocab7).slice(0, gameState.quizLength);
+         
+          gameState.currentIndex = 0;
+          gameState.score = 0;
+          displayVocabQuestion();
+      }
 
       function displayVocabQuestion() {
           // New: Clear any existing timer when a new question is displayed
@@ -2743,6 +2536,4 @@ function startVocabQuiz1(length) {
 
 
 
-  </script>
-</body>
-</html>
+  
